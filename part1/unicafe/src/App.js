@@ -21,9 +21,12 @@ const Button = (props) => {
 const StatisticLine = (props) => {
   return (
     <div>
-      <p>
-        {props.text} {props.value}
-        </p>
+      <table>
+        <tr>
+        <td width="62px">{props.text}</td>
+        <td>{props.value}</td>
+      </tr>
+      </table>
     </div>
   )
 }
@@ -38,6 +41,7 @@ const Statistics = (props) => {
       }
     return (
       <div>
+      <h1>statistics</h1>
       <StatisticLine text="good" value={props.good}/>
       <StatisticLine text="neutral" value={props.neutral}/>
       <StatisticLine text="bad" value={props.bad}/>
