@@ -28,9 +28,16 @@ const StatisticsLine = (props) => {
   )
 }
 const Statistics = (props) => {
-  return (
-    <div>
-      <h1>statistics</h1>
+  if (props.total == 0) {
+    return (
+      <div>
+        <h1>statistics</h1>
+        <p>No feedback given</p>
+      </div>
+        )
+      }
+    return (
+      <div>
       <StatisticsLine text="good" value={props.good}/>
       <StatisticsLine text="neutral" value={props.neutral}/>
       <StatisticsLine text="bad" value={props.bad}/>
