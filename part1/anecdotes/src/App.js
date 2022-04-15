@@ -32,7 +32,7 @@ const App = () => {
       <h1>Anecdote of the day</h1>
       <h4>{anecdotes[selected]}</h4>
       <p>has {votes[selected]} votes</p>
-      <Button handleClikc={vote} text="vote"/>
+      <Button handleClick={vote} text="vote"/>
       <Button handleClick={randomizer} text="next anecdote"/>
       <h1>Anecdotes with most votes</h1>
       <h4>{anecdotes[votes.indexOf(Math.max(...votes))]}</h4>
