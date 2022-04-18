@@ -4,7 +4,8 @@ const Course = ({course}) => {
     console.log(course)
     const content = course.parts.map(part => 
         (<Part key={part.id} name={part.name} exercises={part.exercises}/>))
-    const total = course.parts.reduce((s, p) => s= s+p.exercises,0)
+    const total = 
+        course.parts.reduce((s, p) => s= s+p.exercises,0)
     return (
         <div>
             <h1>{course.name}</h1>
