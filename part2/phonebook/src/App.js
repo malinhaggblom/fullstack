@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import Filter from './components/Filter'
 import PersonForm from './components/PersonForm'
 import Persons from './components/Persons'
@@ -50,7 +50,7 @@ const App = (props) => {
       <PersonForm addPerson={addPerson} value={newName} addNumber={addNumber}
       handleSubmit={handleSubmit}/>
       <h2>Numbers</h2>
-      <Persons person={persons} filter={filter}/>
+      <Persons persons={persons} filter={filter}/>
     </div>
   )
 }
