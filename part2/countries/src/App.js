@@ -23,9 +23,12 @@ const CountriesWrite = ({setSearchWord,showCountries}) => {
   else if(showCountries.length<=10)
   {
     return(
-      <div>{showCountries.map((countries)=><div key={countries.name.common}>{countries.name.common}</div>
-      )
-      }
+      <div>
+        {showCountries.map((countries)=><div key={countries.name.common}>{countries.name.common}
+        <button type="button" value={countries.name.common} onClick={() => setSearchWord(countries.name.common)}>show</button>
+      </div>
+    )
+  }
         </div>
     )
   }
