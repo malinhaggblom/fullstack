@@ -1,6 +1,22 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
 
+const Weather = ({city}) => {
+  const[weatherPlace,setWeather] = useState([])
+  const hook2 = () => {
+    axios
+      .get(`https://openweathermap.org/`)
+      .then(response => {
+      setWeather(response.data)
+    })
+  }
+  useEffect(hook2,[])
+    console.log(weatherPlace)
+    return (
+      <div><h3>Weather in {city}</h3></div>
+    )
+}
+
 const CountriesWrite = ({setSearchWord,showCountries}) => {
   if (showCountries.length === 1) {
     return (
@@ -14,8 +30,11 @@ const CountriesWrite = ({setSearchWord,showCountries}) => {
         )}
         </ul>
       <div>
-      <img src={showCountries[0].flags.png} height="100" width="100" />
+      <img alt="title" src={showCountries[0].flags.png} height="100" width="100" />
       </div>
+      <Weather city={showCountries[0].capital.toString()}/>
+      <p>temperature</p>
+      <p>wind</p>
       </div>
       </div>
     )
@@ -25,16 +44,15 @@ const CountriesWrite = ({setSearchWord,showCountries}) => {
     return(
       <div>
         {showCountries.map((countries)=><div key={countries.name.common}>{countries.name.common}
-        <button type="button" value={countries.name.common} onClick={() => setSearchWord(countries.name.common)}>show</button>
-      </div>
-    )
-  }
+         <button type="button" value={countries.name.common} onClick={() => setSearchWord(countries.name.common)}>show</button></div>)}
         </div>
     )
   }
   else{
     return (
-      <div>Too many matches, specify another filter</div>
+      <div>
+     Too many matches
+      </div>
     )
   }
 }
@@ -59,7 +77,9 @@ const App = () => {
   }
   return (
     <div>
-    <div>find countries <input value={searchWord} onChange={handleSearchChange}/></div>
+    <div>
+      find countries <input value={searchWord} onChange={handleSearchChange}/>
+    </div>
     <CountriesWrite showCountries={showCountries} setSearchWord={setSearchWord}/>
     </div>
   )
