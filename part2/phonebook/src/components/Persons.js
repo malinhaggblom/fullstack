@@ -1,21 +1,10 @@
 import React from 'react'
 
-const Persons = ({persons, filter}) => {
+const Persons = ({searchName, deleteEntry}) => {
     return(
-      <div>
-        {persons
-        .filter((person) =>
-          person.name.toLowerCase().includes(filter.toLowerCase())
-        )
-        .map((filteredPerson) => {
-          return (
-            <p key={filteredPerson.name}>
-              {filteredPerson.name} {filteredPerson.number}
-            </p>
-          )
-        })}
-      </div>
-    )
-  }
-  
+      <div>{searchName.map(person =>
+      <div key={person.id}>{person.name} {person.number} <button type="button" value={person.id} onClick={deleteEntry}>delete</button></div>)}
+    </div>
+  )
+}
 export default Persons
