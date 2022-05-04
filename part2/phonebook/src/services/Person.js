@@ -15,5 +15,9 @@ const remove = (objectid) => {
   const request = axios.delete(link+`/`+objectid.toString())
   return request.then(response => response)
 }
+const replace = (newobject) => {
+  const request = axios.put(link+`/`+newobject.id,newobject)
+  return request.then(response => response.data)
+}
 
-export default { getAll, create, remove }
+export default { getAll, create, remove, replace }
