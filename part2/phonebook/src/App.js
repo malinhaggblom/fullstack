@@ -84,14 +84,21 @@ const App = () => {
         PersonService.replace(changedNumber)
         .then(responsedata => {
           setPersons(persons.map(person => person.id===responsedata.id?responsedata:person))
-        })
       setConfirm(`New number ${newNumber}.`)
       setTimeout(() => {
         setConfirm(null)
       }, 2000)
-      }
+    })
+      .catch(error => {
+        console.log(newName)
+        setPersons(persons.filter(person => person.name !== newName))
+        setConfirm(`Information of ${newName} has already deleted from the server`)
+        setTimeout(() => {
+          setConfirm(null)
+        },5000)
+      })
     }
-  }
+  }}
   const handleNameChange = (event) => {
     console.log(event.target.value)
     setNewName(event.target.value)
@@ -105,6 +112,7 @@ const App = () => {
     SetSearch(event.target.value)
   }
   const searchName = persons.filter(person => person.name.includes(search))
+
   return (
     <div>
       <h2>Phonebook</h2>
