@@ -1,12 +1,10 @@
-import { useState,useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 import CountriesWrite from './components/CountriesWrite'
-import Weather from './components/Weather'
 
 const App = () => {
   const [countries,setCountries] = useState([])
   const [searchWord,setSearchWord] = useState('')
-
   const hook = () => {
     axios
     .get('https://restcountries.com/v3.1/all')
@@ -15,10 +13,8 @@ const App = () => {
     })
   }
   useEffect(hook,[])
-
   const showCountries = countries.filter(country => country.name.common.toLowerCase().includes(searchWord.toLowerCase()))
   console.log(showCountries)
-
   const handleSearchChange = (event) => {
     setSearchWord(event.target.value)
   }
