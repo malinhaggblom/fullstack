@@ -1,9 +1,8 @@
 import React from 'react'
 
-const Filter = ({filter, handleFilterChange}) => {
-    return(
-        <div>filter shown with <input value={filter} onChange={handleFilterChange}/></div>
-    )
-}
+const Filter =  ({name, filter}) => {
+  return(
+    <div>filter shown with <input value={name} onChange={filter}/></div>
+  )}
 
-export default Filter
+  export default Filter
