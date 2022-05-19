@@ -38,7 +38,7 @@ const App = () => {
             .update(name.id, noteObject)
             .then(returnedPerson => {
               setPersons(persons.map(person => person.id !== name.id ? person : returnedPerson))
-              setConfirmMessage(`Updated ${newName}.`)
+              setConfirmMessage(`Updated ${newName}`)
               setTimeout(() => {
                 setConfirmMessage(null)
               },4000)
@@ -68,7 +68,7 @@ const App = () => {
           setPersons(persons.concat(returnedPerson))
           setNewName('')
           setNewNumber('')
-          setConfirmMessage(`Added ${returnedPerson.name}.`)
+          setConfirmMessage(`Added ${returnedPerson.name}`)
           setTimeout(() => {
           setConfirmMessage(null)
         },4000)
