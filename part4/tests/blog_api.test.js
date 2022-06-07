@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const supertest = require('supertest')
 const app = require('../app')
-const Blog = require('../models/blogs')
+const Blog = require('../models/blog')
 const api = supertest(app)
 const helper = require('./test_helper')
 const bcrypt = require('bcrypt')
@@ -23,7 +23,7 @@ test('blogs are returned as json', async () => {
     .get('/api/blogs')
     .expect(200)
     .expect('Content-Type', /application\/json/)
-}, 100000)
+})
 
 //test 4.9
 test('verify unique identifier property as id', async () => {
